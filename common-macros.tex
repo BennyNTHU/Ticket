@@ -1,0 +1,567 @@
+\def\ps@headings{%
+\def\@oddhead{\mbox{}\scriptsize\rightmark \hfil \thepage}%
+\def\@evenhead{\scriptsize\thepage \hfil \leftmark\mbox{}}%
+\def\@oddfoot{}%
+\def\@evenfoot{}}
+%\makeatother
+\pagestyle{headings}
+\usepackage{epsfig, epsf, amsmath, array, amsthm, amssymb, latexsym, graphics, multirow}
+%\usepackage[small]{caption}
+\usepackage{graphicx}
+%\usepackage{subfigure}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{amsmath}
+\interdisplaylinepenalty=2500
+
+%\captionsetup{format=default,labelsep=period,justification=justified,labelfont=footnotesize,textfont=footnotesize}
+
+\abovecaptionskip=2pt \belowcaptionskip=-12pt
+
+\hyphenation{op-tical net-works semi-conduc-tor IEEEtran}
+
+\newcommand {\mymarginpar}[1]{\marginpar{#1}}
+\renewcommand {\marginpar}[1]{} % comment out this command to show labels in the margin
+
+\def\_{\rule{.3em}{.15ex}}      % Get underscore by typing \_.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Line Spacing (e.g., \ls{1} for single, \ls{2} for double, even \ls{1.5})
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setlength{\textwidth}{6.25in}
+%\setlength{\textheight}{9.0in}
+%\setlength {\oddsidemargin}{0in}
+%\setlength {\evensidemargin}{0in}
+%\setlength{\topmargin}{-0.375in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Line Spacing (e.g., \ls{1} for single, \ls{2} for double, even \ls{1.5})
+%%
+
+\newcommand{\ls}[1]
+   {\dimen0=\fontdimen6\the\font
+    \lineskip=#1\dimen0
+    \advance\lineskip.5\fontdimen5\the\font
+    \advance\lineskip-\dimen0
+    \lineskiplimit=.9\lineskip
+    \baselineskip=\lineskip
+    \advance\baselineskip\dimen0
+    \normallineskip\lineskip
+    \normallineskiplimit\lineskiplimit
+    \normalbaselineskip\baselineskip
+    \ignorespaces
+   }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% to be used in math mode:
+\newcommand {\infin}{\infty}
+\newcommand {\one}[1]{\mbox{$1\{ #1 \}$}}
+\newcommand {\ass}{{\bf :=}}
+\newcommand {\caret}{\widehat{~~}}
+\newcommand {\bearn}{\begin{eqnarray*}}
+\newcommand {\eearn}{\end{eqnarray*}}
+\newcommand {\barr}{\begin{array}}
+\newcommand {\earr}{\end{array}}
+\newcommand {\cee}[2] {\left( \begin{array}{c}
+         #1 \\ #2 \end{array} \right)}
+\newcommand {\Set}{{\cal S}}
+\newcommand {\A}{{\cal A}}
+\newcommand {\B}{{\cal B}}
+\newcommand {\C}{{\cal C}}
+\newcommand {\D}{{\cal D}}
+\renewcommand {\L}{{\cal L}}
+\newcommand {\RR}{{\cal R}}
+\newcommand {\U}{{\cal U}}
+\newcommand {\Un}{{\cal U}^n}
+\newcommand {\V}{{\cal V}}
+\newcommand {\W}{{\cal W}}
+\newcommand {\Um}{{\cal U}^m}
+\newcommand {\Z}{{\cal Z}}
+\newcommand {\F}{{\bf F}}
+\newcommand {\Nc}{{\cal N}_c}
+\newcommand {\N}{{\cal N}}
+\newcommand {\Sc}{{\cal S}_c}
+\renewcommand {\S}{{\cal S}}
+\newcommand {\Vc}{{\cal V}_c}
+\newcommand {\Y}{{\cal Y}}
+\newcommand {\X}{{\cal X}}
+\newcommand {\xp}{x^\prime}
+\newcommand\cf{{\cal F}}
+\newcommand\cg{{\cal G}}
+\newcommand\app{\approx}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calS}{\mathcal{S}}
+
+%*****************PROBABILITY*****************
+\newcommand {\given}{\; | \;}
+\newcommand \absolute[1]{\left | #1 \right |}
+%\renewcommand {\[}{[ \:}
+%\renewcommand {\]}{\: ] \,}
+
+%******************** CONvergence of  rv's
+\newcommand\almostsure{\stackrel{a.s.}{\longrightarrow} }
+\newcommand\indist{\stackrel{D}{\longrightarrow} }
+\newcommand\inprob{\stackrel{P}{\longrightarrow} }
+
+%\newcommand\prob[1]{P \left [ \: #1 \; \right ] }
+%\newcommand\probg[2]{P \[ #1 \given #2 \] }
+\newcommand\expect[1]{E \left [ \: #1 \: \right ] }
+\newcommand\var[1]{\sigma_{#1}}
+\newcommand\Var[1]{Var \left ({#1} \right )}
+\newcommand\vartwo[1]{\sigma_{#1}^2}
+\newcommand\expecttwo[2]{E_{#2} \left [ \: #1 \: \right ] }
+\newcommand\xbar[1]{{\overline #1}}
+\newcommand\xbartwo[2]{\left ({\overline #1} \right )      ^{#2}}
+\newcommand\expectg[2]{E \[ #1 \given #2 \] }
+\newcommand\indicator[2]{I_{#1}(#2)}
+\newcommand\indicate[1]{I\left \{{#1}\right \}}
+\newcommand\generate[1]{{ \cal G}_{#1}}
+\newcommand\moment[1]{{ \cal M}_{#1}}
+\newcommand\laplace[1]{{\cal L}_{#1}}
+
+\newcommand\equalst{=_{st}}
+\newcommand\greaterst{>_{st}}
+\newcommand\lesserst{<_{st}}
+\newcommand\suchthat{\,:\,}
+\newcommand\impulse[1]{u_0(#1)}
+
+\newcommand\hospital{L'Hospital's rule }
+\newcommand\Lr{L'Hospital's rule }
+\newcommand\Rt{Rouch\'{e}'s theorem }
+\def\defeq{\stackrel{\scriptstyle\rm def}{=}}
+\def\twoLineSub#1#2{{#1}\atop{#2}}
+
+%******************  NEWTHEOREMS**********************
+\newtheorem{definition}{Definition}
+\newtheorem{property}[definition]{Property}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{example}[definition]{Example}
+\newtheorem{remark}[definition]{Remark}
+%\newtheorem{axiom}[definition]{Axiom}
+\newtheorem{algorithm}[definition]{Algorithm}
+\newtheorem{assumption}[definition]{Assumption}
+
+
+
+%\newtheorem{definition}{Definition}
+%\newtheorem{property}{Property}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{corollary}{Corollary}
+
+
+%********************Random V ariables****************************
+
+\newcommand{\degenerate}[1]
+{\mbox {\bf  $\tilde D_{#1}$}}
+
+\newcommand{\binomial}[3]
+{\mbox {\bf  $\tilde B_{#1,#2}^{#3}$}}
+
+\newcommand{\geometric}[3]
+{\mbox {\bf  $\tilde G_{#1,#2}^{#3}$}}
+
+\newcommand{\poisson}[2]
+{\mbox {\bf  $\tilde P_{#1}^{#2}$}}
+
+\newcommand{\erlang}[3]
+{\mbox {\bf  $\tilde E_{#1,#2}^{#3}$}}
+
+\newcommand{\uniform}[2]
+{\mbox {\bf  $\tilde U_{#1}^{#2}$}}
+
+\newcommand{\normal}[3]
+{\mbox {\bf  $\tilde N_{#1,#2}^{#3}$}}
+
+
+
+%********************** FACTORIAL EXPRESSIONS*****************
+\newcommand{\comb}[2]
+{\left ( \begin{array}{c} #1 \\#2 \end{array} \right ) }
+
+\newcommand{\inlinecomb}[2]
+{\mbox { \scriptsize $ \left ( \begin{array}{c} #1 \\#2
+\end{array} \right ) $ \normalsize}}
+
+\newcommand{\combr}[2] {
+\left \langle \begin{array}{c} #1 \\#2
+\end{array} \right \rangle }
+
+\newcommand{\inlinecombr}[2]
+{\mbox{ \scriptsize $ \left \langle \begin{array}{c} #1 \\#2
+\end{array} \right \rangle
+$ \normalsize}}
+
+\newcommand{\stirltwo}[2] {
+\left \{ \begin{array}{c} #1 \\#2
+\end{array} \right \} }
+
+\newcommand{\inlinestirltwo}[2]
+{\mbox{ \scriptsize $ \left \{ \begin{array}{c} #1 \\#2
+\end{array} \right \}
+$ \normalsize}}
+
+
+\newcommand{\stirlone}[2] {
+\left [ \begin{array}{c} #1 \\#2
+\end{array} \right ] }
+
+\newcommand{\inlinestirlone}[2]
+{\mbox{ \scriptsize $ \left [ \begin{array}{c} #1 \\#2
+\end{array} \right ]
+$ \normalsize}}
+
+%\newcommand{\fact}[2]{(#1)_{#2}}
+\newcommand{\factr}[2]{\langle #1\rangle _{#2}}
+
+%*********************************LISTS*****************************
+\newcommand {\benum} {\begin{enumerate}}
+\newcommand {\eenum} {\end{enumerate}}
+
+\newcommand {\bdesc} {\begin{description}}
+\newcommand {\edesc} {\end{description}}
+\newcommand {\ix}[1] {\index{#1}}
+
+%************************INTEGRALS*******************************
+\newcommand {\intlimits}[3] {\left. #1 \right |_{#3}^{#2}}
+
+%************************** FIGURES*******************************
+% New version
+\newcommand {\bfig}[2] {\begin{figure}[htbp]
+                        \centerline {
+                         \epsfig{figure={#1},clip=,width={#2}}}}
+\newcommand {\brotatefig}[2] {\begin{figure}[htbp]
+                        \centerline {
+                         \epsfig{figure={#1},clip=,angle=-90,width={#2}}}}
+% Old version
+%\newcommand {\bfig}[2] {\begin{figure}[p]
+%                            \centerline {
+%                            \setlength{\epsfxsize}{#2}
+%                            \epsffile{#1}}}
+
+% Skip version
+%\newcommand {\bfig}[2] {\begin{figure}[p]}
+%\newcommand {\brotatefig}[2] {\begin{figure}[p]}
+
+
+\newcommand {\bfigfirst}[2] {\begin{figure}[h]
+                        \centerline {
+                        \setlength{\epsfxsize}{#2}
+                        \epsffile{#1}}}
+\newcommand {\efig}[2]{ \caption{#2}
+                        \label{fig:#1}
+                        \end{figure}
+                        \centerline {
+                        \mymarginpar{fig:#1}}}
+\newcommand {\erotatefig}[2]{ \caption{#2}
+                        \label{fig:#1}
+                        \end{figure}
+                        \mymarginpar{fig:#1}}
+\newcommand {\rfig}[1]{Figure \ref{fig:#1}}
+
+%************************** TABLES********************************
+\newcommand {\btab}[1]{
+                       \begin{table}
+                       \centering
+                       \begin{tabular}{#1}}
+\newcommand {\etab}[3] {
+                       \end{tabular}
+                       \caption[#3]{#2}
+                       \label{tab:#1}
+                       \end{table}
+                       \mymarginpar{tab:#1}
+                       \vspace{.1in}}
+\newcommand {\rtab}[1]{Table \ref{tab:#1}}
+
+\newcommand {\btabular}[1]{\begin{center}
+                       \begin{tabular}{#1}}
+\newcommand {\etabular}{\end{tabular}
+                       \end{center}}
+
+%************************** DEFINITIONS********************************
+\newcommand {\bdefin}[1]{\begin{definition}
+                      \mymarginpar{def:#1}
+                      \label{def:#1} }
+\newcommand {\edefin}       {\end{definition}}
+\newcommand {\rdef}[1]{Definition \ref{def:#1}}
+%************************** ASSUMPTIONS********************************
+\newcommand {\bassum}[1]{\begin{assumption}
+                      \mymarginpar{ass:#1}
+                      \label{ass:#1} }
+\newcommand {\eassum}       {\end{assumption}}
+\newcommand {\rass}[1]{Assumption \ref{ass:#1}}
+
+%************************** PROPERTY********************************
+\newcommand {\bpro}[1]{\begin{property}
+                      \mymarginpar{pro:#1}
+                      \label{pro:#1} }
+\newcommand {\epro}   {\end{property}}
+\newcommand {\rpro}[1]{Property \ref{pro:#1}}
+
+%************************** PROPOSITION********************************
+\newcommand {\bprop}[1]{\begin{proposition}
+                      \mymarginpar{prop:#1}
+                      \label{prop:#1} }
+\newcommand {\eprop}       {\end{proposition}}
+\newcommand {\rprop}[1]{Proposition \ref{prop:#1}}
+
+%************************** LEMMA********************************
+\newcommand {\blem}[1]{\begin{lemma}
+                      \mymarginpar{lem:#1}
+                      \label{lem:#1} }
+\newcommand {\elem}   {\end{lemma}}
+\newcommand {\rlem}[1]{Lemma \ref{lem:#1}}
+
+%************************** THEOREM******************************
+\newcommand {\bthe}[1]{\begin{theorem}
+                      \mymarginpar{the:#1}
+                      \label{the:#1} }
+\newcommand {\ethe}   {\end{theorem}}
+\newcommand {\rthe}[1]{Theorem \ref{the:#1}}
+
+%************************** PROOF******************************
+\newcommand {\bproof}[1]{\noindent {\bf Proof #1.} \ }
+\newcommand {\eproof} {\hfill \squares \\ \vspace{.3cm}}
+%************************** COROLLARY******************************
+\newcommand {\bcor}[1]{\begin{corollary}
+                      \mymarginpar{cor:#1}
+                      \label{cor:#1} }
+\newcommand {\ecor}   {\end{corollary}}
+\newcommand {\rcor}[1]{Corollary \ref{cor:#1}}
+
+%************************** AXIOMS******************************
+\newcommand {\bax}[1]{\begin{axiom}
+                      \mymarginpar{ax:#1}
+                      \label{ax:#1} }
+\newcommand {\eax}       {\vspace{-.1in} \end{axiom}}
+\newcommand {\rax}[1]{Axiom \ref{ax:#1}}
+
+%************************** EXAMPLES **********************************
+%\newcommand {\bex}[2]{\vspace{.2in}
+%                          \begin{example}
+%                          \mymarginpar{ex:#1}
+%                          \small
+%                          {\bf #2 }
+%                          \label{ex:#1} }
+%\newcommand {\eex}   {\end{example} \vspace{.3cm} \normalsize}
+\newcommand {\bex}[2]{\vspace{.1in}
+                      \begin{example}
+                      \mymarginpar{ex:#1}
+                       {\bf #2}
+                      \label{ex:#1} \em}
+\newcommand {\eex}       {\end{example} \vspace{.3cm} }
+\newcommand {\rex}[1]{Example \ref{ex:#1}}
+
+%************************** REMARK******************************
+\newcommand {\brem}[1]{\begin{remark}
+                      \mymarginpar{rem:#1}
+                      \label{rem:#1} \em }
+\newcommand {\erem}   {\end{remark}}
+\newcommand {\rrem}[1]{Remark \ref{rem:#1}}
+
+%************************** EQUATIONS**********************************
+\newcommand {\beq}[1]{\mymarginpar{eq:#1}
+                      \begin{equation}
+                      \label{eq:#1} }
+
+\newcommand {\beqno}[1]{\mymarginpar{eq:#1}
+                      \begin{eqnarray}
+                      \nonumber}
+
+\newcommand {\eeq}       {\end{equation}}
+\newcommand {\eeqno}       { && \end{eqnarray}}
+\newcommand {\req}[1]{(\ref{eq:#1})}
+\newcommand {\rear}[1]{(\ref{eqar:#1})}
+
+\newcommand {\bear}[1]{\mymarginpar{eq:#1}
+                       \begin{eqnarray}
+                       \label{eq:#1} }
+
+\newcommand {\bearno}[1]{\mymarginpar{eq:#1}
+                       \begin{eqnarray}
+                       \nonumber}
+
+\newcommand {\eear}{\end{eqnarray}}
+\newcommand {\eearno}{\end{eqnarray}}
+%*****************SELECTION IN MATH*****************************
+\newcommand {\bsel}{\left \{ \begin{array}{cl}}
+\newcommand {\esel}{\end{array} \right.}
+
+%*****************MATRICES IN MATH*****************************
+\newcommand {\bmat}[1]{\left [ \begin{array}{#1}}
+\newcommand {\emat}{\end{array} \right ]}
+%************************** SECTIONS**********************************
+\newcommand {\bsec}[2]{\mymarginpar{sec:#2}
+                       \section{#1}
+                       \label{sec:#2} }
+
+\newcommand {\rsec}[1]{Section \ref{sec:#1}}
+
+%***************************CHAPTER************************************
+\newcommand {\rcha}[1]{Chapter \ref{cha:#1}}
+
+%************************** SUBSECTIONS**********************************
+\newcommand {\bsubsec}[2]{\mymarginpar{sec:#2}
+                       \subsection{#1}
+                       \label{sec:#2} }
+
+\newcommand {\rsubsec}[1]{Section \ref{sec:#1}}
+
+\newcommand {\heading}[1]{\vspace{.4in}
+                          \noindent
+                          \addcontentsline{toc}{subsection}
+                          {\hspace{.5in} {\em #1}}
+                           {\bf #1}
+                           \vspace{.15in}}
+
+\newcommand {\headingtwo}[1]{\vspace{.4in}
+                          \noindent
+                          \addcontentsline{toc}{subsection}
+                          {\hspace{1in} {\em #1}}
+                           {\bf #1}
+                           \vspace{.15in}}
+%************************** SUBSUBSECTIONS**********************************
+\newcommand {\bsubsubsec}[2]{\mymarginpar{sec:#2}
+                       \subsubsection{#1}
+                       \label{sec:#2} }
+
+\newcommand {\rsubsubsec}[1]{Section \ref{sec:#1}}
+
+\newcommand {\subheading}[1]{\vspace{.4in}
+                          \noindent
+                          \addcontentsline{toc}{subsection}
+                          {\hspace{.5in} {\em #1}}
+                           {\bf #1}
+                           \vspace{.15in}}
+
+\newcommand {\subheadingtwo}[1]{\vspace{.4in}
+                          \noindent
+                          \addcontentsline{toc}{subsection}
+                          {\hspace{1in} {\em #1}}
+                           {\bf #1}
+                           \vspace{.15in}}
+%************************** PROBLEMS****************************
+
+
+\def\R{I\kern-0.30em R}
+\def\N{I\kern-0.30em N}
+\def\P{I\kern-0.30em P}
+
+%*********** COmmands for Continuous Probability*******************
+%\def\bibitem{\@ifnextchar[{\@lbibitem}{\@bibitem}}
+
+
+%\def\sqr#1#2{{\vcenter{\hrule height.#2pt
+%         \hbox{\vrule width.#2pt height#1pt \kern#1pt
+%           \vrule width.#2pt}
+%      \hrule height.2pt}}}
+% \def\square{$\sqr79$}
+\newcommand\squares{\vrule height6pt width7pt depth1pt}
+
+
+
+\newcommand{\de}{\buildrel \rm def \over =}
+\renewcommand{\de}{\equiv}
+
+
+
+
+% Macros used in this paper only
+
+
+% Macros used in this paper only
+
+\newcommand{\pib}{p}
+\newcommand{\pic}{{\tilde p}}
+\def\ex{{\bf\sf E}}
+\def\pr{{\bf\sf P}}
+\newcommand{\stackunder}[2]{\mathop{#2}\limits_{#1}}
+%\newcommand{\text}[1]{\mbox{#1}}
+
+\newcommand{\qz}{q^0}
+\newcommand{\ain}{a}
+\newcommand{\bin}{b}
+
+\def\bfa{{\mbox{$\bm{a}$}}}
+\def\bfb{{\mbox{$\bm{b}$}}}
+\def\bfe{{\mbox{$\bm{e}$}}}
+\def\bfd{{\mbox{$\bm{d}$}}}
+\def\bfsd{{\mbox{\scriptsize$\bm{d}$}}}
+\def\bff{{\mbox{$\bm{f}$}}}
+\def\bfsf{{\mbox{\scriptsize$\bm{f}$}}}
+\def\bfg{{\mbox{$\bm{g}$}}}
+\def\bfh{{\mbox{$\bm{h}$}}}
+\def\bfl{{\mbox{$\bm{\ell}$}}}
+\def\bfm{{\mbox{$\bm{m}$}}}
+\def\bfn{{\mbox{$\bm{n}$}}}
+\def\bfsn{{\mbox{\scriptsize$\bm{n}$}}}
+\def\bfp{{\mbox{$\bm{p}$}}}
+\def\bfq{{\mbox{$\bm{q}$}}}
+\def\bfr{{\mbox{$\bm{r}$}}}
+\def\bfsr{{\mbox{\scriptsize$\bm{r}$}}}
+\def\bfs{{\mbox{$\bm{s}$}}}
+\def\bft{{\mbox{$\bm{t}$}}}
+\def\bfu{{\mbox{$\bm{u}$}}}
+\def\bfv{{\mbox{$\bm{v}$}}}
+\def\bfx{{\mbox{$\bm{x}$}}}
+\def\bfy{{\mbox{$\bm{y}$}}}
+\def\bfw{{\mbox{$\bm{w}$}}}
+\def\bfsx{{\mbox{\scriptsize$\bm{x}$}}}
+\def\bfN{{\mbox{$\bm{N}$}}}
+\def\bfA{{\mbox{$\bm{A}$}}}
+\def\bfB{{\mbox{$\bm{B}$}}}
+\def\bfC{{\mbox{$\bm{C}$}}}
+\def\bfD{{\mbox{$\bm{D}$}}}
+\def\bfE{{\mbox{$\bm{E}$}}}
+\def\bfF{{\mbox{$\bm{F}$}}}
+\def\bfG{{\mbox{$\bm{G}$}}}
+\def\bfI{{\mbox{$\bm{I}$}}}
+\def\bfJ{{\mbox{$\bm{J}$}}}
+\def\bfsN{{\mbox{\scriptsize$\bm{N}$}}}
+\def\bfM{{\mbox{$\bm{M}$}}}
+\def\bfP{{\mbox{$\bm{P}$}}}
+\def\bfQ{{\mbox{$\bm{Q}$}}}
+\def\bfU{{\mbox{$\bm{U}$}}}
+\def\bfV{{\mbox{$\bm{V}$}}}
+\def\bfX{{\mbox{$\bm{X}$}}}
+\def\bfY{{\mbox{$\bm{Y}$}}}
+\def\bfZ{{\mbox{$\bm{Z}$}}}
+\def\bfpi{{\mbox{$\bm{\pi}$}}}
+\def\bfxi{{\mbox{$\bm{\xi}$}}}
+\def\bfone{{\mbox{$\bm{1}$}}}
+\def\bfzero{{\mbox{$\bm{0}$}}}
+
+\def\bfj{{\mbox{$\bm{j}$}}}
+\def\bfi{{\mbox{$\bm{i}$}}}
+\def\bfT{{\mbox{$\bm{T}$}}}
+
+\def\grad{{\nabla}}
+%\def\stge{\stackrel{\ge}{\mbox{st}}}
+\def\stge{\ge_{\rm st}}
+\def\twoLineSub#1#2{{#1}\atop{#2}}
+\def\argmin{\mathop{\rm argmin}}
+\def\argmax{\mathop{\rm argmax}}
+\def\indicatorFunction#1{{1_{\left\{#1\right\}}}}
+
+\newcommand{\erdos}{Erd\H{o}s\ }
+\newcommand{\renyi}{R\'{e}nyi\ }
+\newcommand{\er}{Erd\H{o}s and R\'{e}nyi\ }
+\newcommand{\edr}{Erd\H{o}s-R\'{e}nyi\ }
+\newcommand{\binomcoeff}[2]{\left(\begin{array}{c}#1\\#2\end{array}\right)}
+\newcommand{\noeqarwidth}{\setlength{\arraycolsep}{0pt}}
+
+
+
+
+\newcommand{\gc}{\emph{greedy construction}}
+\newcommand{\tba}{\centerline{\em *** To Be Added ***}}
+
+%\bibliographystyle{IEEE}
+
+
+%\newtheorem{part}{Part}
